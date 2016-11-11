@@ -35,10 +35,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     TextView guessedWord;
     Galgelogik galgelogik;
     SharedPreferences prefs;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
+
     private GoogleApiClient client;
 
     @Override
@@ -57,9 +54,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         galgelogik = new Galgelogik();
         getAsyncWords();
         WordtextView.setText(galgelogik.getSynligtOrd());
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     @Override
@@ -123,7 +117,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
                 new AlertDialog.Builder(this)
                 .setTitle(status)
-                .setMessage("Spil igen?")
+                .setMessage("Det korrekte ord: "+ galgelogik.getOrdet() + "\nSpil igen?")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intent = getIntent();
